@@ -19,6 +19,8 @@ def main():
 
     # TODO: add a post here
 
+
+
     running = True
     while running:
         # Grabs events such as key pressed, mouse pressed and so.
