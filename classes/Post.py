@@ -15,8 +15,15 @@ class Post:
         self.likes_counter = None
         self.comments = 0
 
-    def add_likes(self):
-        pass
+    def add_likes(self,likes_counter):
+        if event.type == pygame.MOUSEBUTTONDOWN :
+            if ((LIKE_BUTTON_X_POS == mouse_pos[0] ==
+                 LIKE_BUTTON_X_POS + button_width) and
+                    (LIKE_BUTTON_Y_POS == mouse_pos[1] ==
+                     LIKE_BUTTON_Y_POS + button_height)):
+                likes_counter+= 1
+                self.likes_counter = likes_counter
+
 
     def add_comment(text):
         pass
