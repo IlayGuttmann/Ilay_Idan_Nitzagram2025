@@ -18,8 +18,14 @@ class Post:
     def add_likes(self):
         pass
 
-    def add_comment(text):
-        pass
+    def add_comment(self, comment):
+        # Add comment to the post and update the comments list
+        # If there are more than 10 comments, remove the oldest one
+        self.comments.append(comment)
+        if len(self.comments) > 10:
+            self.comments.pop(0)
+            self.comments_display_index = 0
+
 
 
     def display(self):
