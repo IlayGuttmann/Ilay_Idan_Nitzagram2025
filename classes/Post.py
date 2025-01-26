@@ -35,6 +35,7 @@ class Post:
 
 
 
+
     def display(self):
         """
         Display the Post image/Text, description, location, likes and comments
@@ -42,8 +43,17 @@ class Post:
 
         :return: None
         """
-        # TODO: write me!
-        pass
+        # Display username, location, description and likes
+        username_font = pygame.font.SysFont('chalkduster.ttf', USERNAME_TEXT_SIZE)
+        username_text = username_font.render(self.username, True, WHITE)
+        screen.blit(username_text, (USERNAME_TEXT_X_POS, USERNAME_TEXT_Y_POS))
+
+        location_font = pygame.font.SysFont('chalkduster.ttf', LOCATION_TEXT_SIZE)
+        location_text = location_font.render(self.location, True, WHITE)
+        screen.blit(location_text, (LOCATION_TEXT_X_POS, LOCATION_TEXT_Y_POS))
+
+        description_font = pygame.font.SysFont('chalkduster.ttf', DESCRIPTION_TEXT_SIZE)
+        description_text = description_font.render(self.description, True, WHITE)
 
 
     def display_comments(self):
@@ -62,6 +72,7 @@ class Post:
                                                             True, LIGHT_GRAY)
             screen.blit(view_more_comments_button, (VIEW_MORE_COMMENTS_X_POS,
                                                     VIEW_MORE_COMMENTS_Y_POS))
+            return None
 
         # Display 4 comments starting from comments_display_index
         for i in range(0, len(self.comments)):
