@@ -54,6 +54,7 @@ class Post:
 
         description_font = pygame.font.SysFont('chalkduster.ttf', DESCRIPTION_TEXT_SIZE)
         description_text = description_font.render(self.description, True, WHITE)
+        return None
 
 
     def display_comments(self):
@@ -82,6 +83,7 @@ class Post:
             position_index += 1
             if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
                 break
+
 
 
 
