@@ -31,7 +31,6 @@ class Post:
         self.comments.append(comment)
         if len(self.comments) > 10:
             self.comments.pop(0)
-            self.comments_display_index = 0
 
 
 
