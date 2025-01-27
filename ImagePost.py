@@ -1,5 +1,5 @@
-from classes import Post
-from constants import *
-def image(post):
-    image1 = pygame.transform.scale(image1 , (POST_WIDTH, POST_HEIGHT))
+import pygame
 
+from Post import Post
+from constants import *
+class TextPost(Post):
