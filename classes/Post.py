@@ -43,11 +43,11 @@ class Post:
         :return: None
         """
         # Display username, location, description and likes
-        username_font = pygame.font.SysFont('chalkduster.ttf', USERNAME_TEXT_SIZE)
+        username_font = pygame.font.SysFont('chalkduster.ttf')
         username_text = username_font.render(self.username, True, WHITE)
-        screen.blit(username_text, (USERNAME_TEXT_X_POS, USERNAME_TEXT_Y_POS))
+        screen.blit(username_text, (USER_NAME_X_POS, USER_NAME_Y_POS))
 
-        location_font = pygame.font.SysFont('chalkduster.ttf', LOCATION_TEXT_SIZE)
+        location_font = pygame.font.SysFont('chalkduster.ttf')
         location_text = location_font.render(self.location, True, WHITE)
         screen.blit(location_text, (LOCATION_TEXT_X_POS, LOCATION_TEXT_Y_POS))
 

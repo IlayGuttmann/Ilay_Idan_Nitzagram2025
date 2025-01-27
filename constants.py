@@ -1,7 +1,13 @@
-    # Width and Height of the project window
+import pygame
 
+# Width and Height of the project window
 WINDOW_WIDTH = 360
 WINDOW_HEIGHT = 720
+
+# load imagens from the project
+image1 = pygame.image.load('Images/putin.jpg')
+image2 = pygame.image.load('Images/noa_kirel.jpg')
+image3 = pygame.image.load('Images/stalin.jpg')
 
 # Post proportions
 # X, Y represent the top left corner of the Post
