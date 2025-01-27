@@ -15,8 +15,15 @@ class Post:
         self.likes_counter = None
         self.comments = 0
 
-    def add_likes(self):
-        pass
+    def add_likes(self,likes_counter):
+        if event.type == pygame.MOUSEBUTTONDOWN :
+            if ((LIKE_BUTTON_X_POS == mouse_pos[0] ==
+                 LIKE_BUTTON_X_POS + button_width) and
+                    (LIKE_BUTTON_Y_POS == mouse_pos[1] ==
+                     LIKE_BUTTON_Y_POS + button_height)):
+                likes_counter+= 1
+                self.likes_counter = likes_counter
+
 
     def add_comment(self, comment):
         # Add comment to the post and update the comments list
@@ -28,6 +35,7 @@ class Post:
 
 
 
+
     def display(self):
         """
         Display the Post image/Text, description, location, likes and comments
@@ -35,8 +43,18 @@ class Post:
 
         :return: None
         """
-        # TODO: write me!
-        pass
+        # Display username, location, description and likes
+        username_font = pygame.font.SysFont('chalkduster.ttf', USERNAME_TEXT_SIZE)
+        username_text = username_font.render(self.username, True, WHITE)
+        screen.blit(username_text, (USERNAME_TEXT_X_POS, USERNAME_TEXT_Y_POS))
+
+        location_font = pygame.font.SysFont('chalkduster.ttf', LOCATION_TEXT_SIZE)
+        location_text = location_font.render(self.location, True, WHITE)
+        screen.blit(location_text, (LOCATION_TEXT_X_POS, LOCATION_TEXT_Y_POS))
+
+        description_font = pygame.font.SysFont('chalkduster.ttf', DESCRIPTION_TEXT_SIZE)
+        description_text = description_font.render(self.description, True, WHITE)
+        return None
 
 
     def display_comments(self):
@@ -55,6 +73,7 @@ class Post:
                                                             True, LIGHT_GRAY)
             screen.blit(view_more_comments_button, (VIEW_MORE_COMMENTS_X_POS,
                                                     VIEW_MORE_COMMENTS_Y_POS))
+            return None
 
         # Display 4 comments starting from comments_display_index
         for i in range(0, len(self.comments)):
@@ -64,6 +83,7 @@ class Post:
             position_index += 1
             if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
                 break
+
 
 
 

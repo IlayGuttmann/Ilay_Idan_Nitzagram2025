@@ -1,4 +1,4 @@
-# Width and Height of the project window
+    # Width and Height of the project window
 
 WINDOW_WIDTH = 360
 WINDOW_HEIGHT = 720
