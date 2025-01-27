@@ -1,7 +1,7 @@
 import pygame
 from helpers import screen
 from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK
-#from classes import Post
+from classes import Post
 
 
 def main():
