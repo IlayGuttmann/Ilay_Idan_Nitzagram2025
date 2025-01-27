@@ -8,12 +8,12 @@ class Post:
     """
     A class used to represent post on Nitzagram
     """
-    def __init__(self):
-        self.username = None
-        self.location = None
-        self.description = None
-        self.likes_counter = None
-        self.comments = 0
+    def __init__(self, username, location, description, likes_counter, comments):
+        self.username = username
+        self.location = location
+        self.description = description
+        self.likes_counter = likes_counter
+        self.comments = comments
 
     def add_likes(self,likes_counter):
         if event.type == pygame.MOUSEBUTTONDOWN :

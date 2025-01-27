@@ -1,4 +1,4 @@
-import post
+from post import *
 
 def image():
     image1 = pygame.image.load('Images/putin.jpg')
