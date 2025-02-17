@@ -19,7 +19,7 @@ def main():
     print("Background image loaded successfully")
 
     post1 = ImagePost("Putin", "You will never know", "This is the good Russia balat", "Images/putin.jpg")
-    post2 = ImagePost("Stalin", "The good Russia", "Putin Should bring back my olg Russia", "Images/noa_kirel.jpg")
+    post2 = ImagePost("Stalin", "The good Russia", "Putin Should bring back my old Russia", "Images/stalin.jpg")
     post3 = TextPost("Ilay.and.idan", "yow mama", "Nigga", WHITE, LIGHT_GRAY, BLACK)
     posts = [post1, post2, post3]
     print("Posts created successfully")
