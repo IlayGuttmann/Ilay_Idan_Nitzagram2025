@@ -1,45 +1,56 @@
 import pygame
-from helpers import screen
-from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK
-from classes import Post
-
+from Post import Post
+from constants import *
+from ImagePost import ImagePost
+from TextPost import TextPost
 
 def main():
-    # Set up the game display, clock and headline
     pygame.init()
+    print("Pygame initialized")
 
-    # Change the title of the window
+    screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     pygame.display.set_caption('Nitzagram')
+    print("Screen created")
 
     clock = pygame.time.Clock()
 
-    # Set up background image
     background = pygame.image.load('Images/background.png')
-    background = pygame.transform.scale(background,(WINDOW_WIDTH, WINDOW_HEIGHT))
+    background = pygame.transform.scale(background, (WINDOW_WIDTH, WINDOW_HEIGHT))
+    print("Background image loaded successfully")
 
-    # TODO: add a post here
+    post1 = ImagePost("Cristiano Ronaldo", "United", "", "Images/ronaldo.jpg")
+    post2 = ImagePost("Erel", "Festigal", "Another great picture!", "Images/noa_kirel.jpg")
+    post3 = TextPost("Nikel", "Unknown", "This is a text post!", WHITE, LIGHT_GRAY, BLACK)
+    posts = [post1, post2, post3]
+    print("Posts created successfully")
 
-
+    current_post_index = 0
+    print("Entering game loop")
 
     running = True
     while running:
-        # Grabs events such as key pressed, mouse pressed and so.
-        # Going through all the events that happened in the last clock tick
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print("Quit event detected")
                 running = False
 
-        # Display the background, presented Image, likes, comments, tags and location(on the Image)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    print("Mouse click detected, changing post")
+                    current_post_index = (current_post_index + 1) % len(posts)
+
         screen.fill(BLACK)
-        screen.blit(background, (0, 0))
+        if background:
+            screen.blit(background, (0, 0))
 
-        # Update display - without input update everything
+        posts[current_post_index].display(screen)
+
         pygame.display.update()
-
-        # Set the clock tick to be 60 times per second. 60 frames for second.
         clock.tick(60)
+
+    print("Exiting game loop")
     pygame.quit()
-    quit()
+    print("Pygame quit")
 
-
-main()
+if __name__ == "__main__":
+    main()

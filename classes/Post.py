@@ -12,28 +12,15 @@ class Post:
         self.username = username
         self.location = location
         self.description = description
-        self.likes_counter = 0
+        self.counter_likes = 0
         self.comments = []
+        self.comments_display_index = 0
 
-    def add_likes(self,likes_counter):
-        if event.type == pygame.MOUSEBUTTONDOWN :
-            if ((LIKE_BUTTON_X_POS == mouse_pos[0] ==
-                 LIKE_BUTTON_X_POS + button_width) and
-                    (LIKE_BUTTON_Y_POS == mouse_pos[1] ==
-                     LIKE_BUTTON_Y_POS + button_height)):
-                likes_counter += 1
-                self.likes_counter = likes_counter
+    def add_like(self):
+        self.counter_likes += 1
 
-
-    def add_comment(self, comment):
-        # Add comment to the post and update the comments list
-        # If there are more than 10 comments, remove the oldest one
-        self.comments.append(comment)
-        if len(self.comments) > 10:
-            self.comments.pop(0)
-
-
-
+    def add_commennt(self, text):
+        self.comments.append(text)
 
     def display(self):
         """
@@ -42,18 +29,31 @@ class Post:
 
         :return: None
         """
-        # Display username, location, description and likes
-        username_font = pygame.font.SysFont('chalkduster.ttf')
-        username_text = username_font.render(self.username, True, WHITE)
-        screen.blit(username_text, (USER_NAME_X_POS, USER_NAME_Y_POS))
+        # img = pygame.image.load()
+        # img = pygame.transform.scale(img, POST_WIDTH, POST_HEIGHT)
+        # screen.blit(img, (POST_X_POS, POST_Y_POS))
 
-        location_font = pygame.font.SysFont('chalkduster.ttf')
-        location_text = location_font.render(self.location, True, WHITE)
-        screen.blit(location_text, (LOCATION_TEXT_X_POS, LOCATION_TEXT_Y_POS))
 
-        description_font = pygame.font.SysFont('chalkduster.ttf', DESCRIPTION_TEXT_SIZE)
-        description_text = description_font.render(self.description, True, WHITE)
-        return None
+        username_font = pygame.font.SysFont("Ariel", UI_FONT_SIZE)
+        text = username_font.render(self.username, True, BLACK)
+        screen.blit(text, [USER_NAME_X_POS, USER_NAME_Y_POS])
+
+        likes_font = pygame.font.SysFont("Ariel", UI_FONT_SIZE)
+        text = likes_font.render(str(self.counter_likes), True, BLACK)
+        screen.blit(text, [LIKE_TEXT_X_POS, LIKE_TEXT_Y_POS])
+
+        description_font = pygame.font.SysFont("Ariel", UI_FONT_SIZE)
+        text = description_font.render(self.description, True, BLACK)
+        screen.blit(text, [DESCRIPTION_TEXT_X_POS, DESCRIPTION_TEXT_Y_POS])
+
+        location_font = pygame.font.SysFont("Ariel", UI_FONT_SIZE)
+        text = location_font.render(self.location, True, BLACK)
+        screen.blit(text, [LOCATION_TEXT_X_POS, LOCATION_TEXT_Y_POS])
+
+        self.display_comments()
+
+
+
 
 
     def display_comments(self):
@@ -72,7 +72,6 @@ class Post:
                                                             True, LIGHT_GRAY)
             screen.blit(view_more_comments_button, (VIEW_MORE_COMMENTS_X_POS,
                                                     VIEW_MORE_COMMENTS_Y_POS))
-            return None
 
         # Display 4 comments starting from comments_display_index
         for i in range(0, len(self.comments)):
@@ -82,7 +81,6 @@ class Post:
             position_index += 1
             if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
                 break
-
 
 
 
