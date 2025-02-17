@@ -1,8 +1,8 @@
 import pygame
-from Post import Post
+from classes.ImagePost import ImagePost
+from classes.TextPost import TextPost
+from classes.Post import Post
 from constants import *
-from ImagePost import ImagePost
-from TextPost import TextPost
 
 def main():
     pygame.init()
@@ -18,9 +18,9 @@ def main():
     background = pygame.transform.scale(background, (WINDOW_WIDTH, WINDOW_HEIGHT))
     print("Background image loaded successfully")
 
-    post1 = ImagePost("Cristiano Ronaldo", "United", "", "Images/ronaldo.jpg")
-    post2 = ImagePost("Erel", "Festigal", "Another great picture!", "Images/noa_kirel.jpg")
-    post3 = TextPost("Nikel", "Unknown", "This is a text post!", WHITE, LIGHT_GRAY, BLACK)
+    post1 = ImagePost("Putin", "you will never know", "", "Images/putin.jpg")
+    post2 = ImagePost("noakirel", "Festigal", "Another great picture!", "Images/noa_kirel.jpg")
+    post3 = TextPost("Ilay.and.idan", "yow mama", "This is a text post!", WHITE, LIGHT_GRAY, BLACK)
     posts = [post1, post2, post3]
     print("Posts created successfully")
 
