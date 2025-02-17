@@ -18,9 +18,9 @@ def main():
     background = pygame.transform.scale(background, (WINDOW_WIDTH, WINDOW_HEIGHT))
     print("Background image loaded successfully")
 
-    post1 = ImagePost("Putin", "you will never know", "", "Images/putin.jpg")
-    post2 = ImagePost("noakirel", "Festigal", "Another great picture!", "Images/noa_kirel.jpg")
-    post3 = TextPost("Ilay.and.idan", "yow mama", "This is a text post!", WHITE, LIGHT_GRAY, BLACK)
+    post1 = ImagePost("Putin", "You will never know", "This is the good Russia balat", "Images/putin.jpg")
+    post2 = ImagePost("Stalin", "The good Russia", "Putin Should bring back my olg Russia", "Images/noa_kirel.jpg")
+    post3 = TextPost("Ilay.and.idan", "yow mama", "Nigga", WHITE, LIGHT_GRAY, BLACK)
     posts = [post1, post2, post3]
     print("Posts created successfully")
 
