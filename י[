@@ -1,0 +1,45 @@
+import pygame
+from post import Post
+from image_post import ImagePost
+from text_post import TextPost
+from button import Button
+
+pygame.init()
+screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+pygame.display.set_caption("Nitzagram")
+def like_post():
+    current_post.like_add()
+
+def add_comment():
+    current_post.comment_add("Nice post!")
+
+def share_post():
+    print("Post shared!")
+like_button = Button(LIKE_BUTTON_X_POS, LIKE_BUTTON_Y_POS, LIKE_BUTTON_WIDTH, LIKE_BUTTON_HEIGHT, GREY, like_post)
+comment_button = Button(COMMENT_BUTTON_X_POST, COMMENT_BUTTON_Y_POS, COMMENT_BUTTON_WIDTH, COMMENT_BUTTON_HEIGHT, GREY, add_comment)
+share_button = Button(SHARE_BUTTON_X_POST, SHARE_BUTTON_Y_POS, SHARE_BUTTON_WIDTH, SHARE_BUTTON_HEIGHT, GREY, share_post)
+posts = [
+    ImagePost("User1", "Tel Aviv", "A great day!", image1),
+    TextPost("User2", "London", "Feeling happy!", "Hello, world!", BLACK, LIGHT_GRAY),
+    ImagePost("User3", "New York", "Amazing view!", image2)
+]
+current_post_index = 0
+current_post = posts[current_post_index]
+running = True
+while running:
+    screen.fill(WHITE)
+    current_post.display(screen)
+    like_button.draw(screen)
+    comment_button.draw(screen)
+    share_button.draw(screen)
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        like_button.check_click(event)
+        comment_button.check_click(event)
+        share_button.check_click(event)
+
+    pygame.display.update()
+
+pygame.quit()
