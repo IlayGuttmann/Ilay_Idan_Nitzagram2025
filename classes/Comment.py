@@ -3,7 +3,7 @@ from constants import *
 from helpers import screen
 
 class Comment:
-    def _init_(self, text):
+    def __init__(self, text):
         self.text = text
 
     def display(self, i):

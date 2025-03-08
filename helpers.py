@@ -1,5 +1,4 @@
 import pygame
-
 from constants import *
 
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), pygame.RESIZABLE)
@@ -107,6 +106,7 @@ def center_text(num_of_rows, text_to_display, row_number):
     horizontal_margin = \
         (POST_HEIGHT - num_of_rows * TEXT_POST_FONT_SIZE) // 2
     # Get the text object size (height and width)
+
     text_rect = text_to_display.get_rect()
     # Center the text to the center of X axis
     text_rect.x = ((POST_WIDTH - text_rect.width) // 2) + 20

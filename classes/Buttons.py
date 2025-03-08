@@ -1,27 +1,20 @@
-import pygame
+# Create Buttons: like, comment, change_image, view more comments
+from classes.Button import Button
+from constants import *
 
-pygame.init()
-
-screen = pygame.display.set_mode((800, 600))
-running = True
-
-buttons = []
-
-while running:
-    screen.fill((255, 255, 255))
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_pos = pygame.mouse.get_pos()
-            for button in buttons:
-                if button.button_in_mouse(mouse_pos):
-                    button.action()
-
-    for button in buttons:
-        button.draw(screen)
-
-    pygame.display.flip()
-
-pygame.quit()
+like_button = Button(LIKE_BUTTON_X_POS,
+                     LIKE_BUTTON_Y_POS,
+                     LIKE_BUTTON_WIDTH,
+                     LIKE_BUTTON_HEIGHT)
+comment_button = Button(COMMENT_BUTTON_X_POST,
+                        COMMENT_BUTTON_Y_POS,
+                        COMMENT_BUTTON_WIDTH,
+                        COMMENT_BUTTON_HEIGHT)
+click_post_button = Button(POST_X_POS,
+                           POST_Y_POS,
+                           POST_WIDTH,
+                           POST_HEIGHT)
+view_more_comments_button = Button(VIEW_MORE_COMMENTS_X_POS,
+                                   VIEW_MORE_COMMENTS_Y_POS,
+                                   VIEW_MORE_COMMENT_WIDTH,
+                                   VIEW_MORE_COMMENT_HEIGHT)
